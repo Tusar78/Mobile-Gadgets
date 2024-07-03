@@ -1,3 +1,11 @@
-h2 {
-    color: green;
+.container-fluid {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.custom-container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 48px;
 }
