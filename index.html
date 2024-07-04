@@ -1,32 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./assets/css/style.css"> 
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
 
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Mobile Gadget</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="container-fluid hero pt-12 pb-28">
-        <div class="custom-container">
-            <div class="hero__nav flex items-center justify-between">
-                <a href="#" class="brand text-2xl font-bold text-gray-700">Mobile Gadget</a>
-                <button class="bg-blue-600 text-white font-medium text-xl px-9 py-4 rounded-lg">Sign Up</button>
-            </div>
-            <div class="hero__head mt-12 text-center">
-                <h2 class="font-bold text-black text-4xl lg:text-6xl max-w-[799px] m-auto">Apple Iphone 13 Pro Max</h2>
-                <p class="text-xl text-gray-600 max-w-[738px] mx-auto mt-6 mb-[72px]">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humou.</p>
-                <button class="bg-blue-600 text-white font-medium text-xl px-9 py-4 rounded-lg">Sign Up</button>
-            </div>
-            <div class="hero__banner max-w-[841px] mt-14 mx-auto">
-                <img src="./assets/img/group_48095420.webp" alt="">
-            </div>
+      <div class="custom-container">
+        <div class="hero__nav flex items-center justify-between">
+          <a href="#" class="brand text-2xl font-bold text-gray-700"
+            >Mobile Gadget</a
+          >
+          <button
+            class="bg-blue-600 text-white font-medium text-xl px-9 py-4 rounded-lg"
+          >
+            Sign Up
+          </button>
         </div>
+        <div class="hero__head mt-12 text-center">
+          <h2
+            class="font-bold text-black text-4xl lg:text-6xl max-w-[799px] m-auto"
+          >
+            Apple Iphone 13 Pro Max
+          </h2>
+          <p class="text-xl text-gray-600 max-w-[738px] mx-auto mt-6 mb-[72px]">
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority have suffered alteration in some form, by injected
+            humou.
+          </p>
+          <button
+            class="bg-blue-600 text-white font-medium text-xl px-9 py-4 rounded-lg"
+          >
+            Sign Up
+          </button>
+        </div>
+        <div class="hero__banner max-w-[841px] mt-14 mx-auto">
+          <img src="./assets/img/phones-banner.webp" alt="Phones" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container-fluid phones pb-28">
+      <div class="custom-container">
+        <div class="phones__head">
+          <h2 class="phones__title text-center mb-7 text-4xl font-semibold">
+            Search your phone
+          </h2>
+          <div
+            class="phones__search max-w-[752px] w-full h-16 mx-auto relative"
+          >
+            <input
+              class="search__input w-full h-full bg-[#100F0F]/5 rounded-lg pl-[54px] outline-none focus:ring-1"
+              type="text"
+              placeholder="Search your phone"
+              id="search__field"
+            />
+            <img
+              class="search__icon absolute top-5 left-5 w-6 h-6"
+              src="./assets/img/search.svg"
+              alt="Search SVG"
+            />
+            <button
+              class="search__btn h-16 absolute right-0 bg-blue-600 text-white font-medium text-xl px-9 py-4 rounded-lg"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+
+        <div class="phones__list mt-16 grid grid-cols-3 gap-6">
+          <!-- <div class="card bg-base-100 w-full shadow-xl">
+            <figure class="px-10 pt-10">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                alt="Shoes"
+                class="rounded-xl"
+              />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Shoes!</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div class="card-actions">
+                <button class="btn btn-primary">Buy Now</button>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
     </section>
 
     <script src="./assets/js/app.js"></script>
-</body>
+  </body>
 </html>
