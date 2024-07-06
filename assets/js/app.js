@@ -1,16 +1,15 @@
 const phoneList = document.querySelector(".phones__list");
-console.log(phoneList);
+// console.log(phoneList);
 
 // Data Get
-const getData = async () => {
+const getData = async (searchData) => {
   const response = await fetch(
-    "https://openapi.programming-hero.com/api/phones?search=iphone"
+    `https://openapi.programming-hero.com/api/phones?search=${searchData}`
   );
   const data = await response.json();
-  displayData(data.data);
+  const phones = data.data;
+  displayData(phones);
 };
-
-getData();
 
 // fetch("https://openapi.programming-hero.com/api/phones?search=iphone")
 //   .then((res) => res.json())
@@ -18,7 +17,6 @@ getData();
 
 const displayData = (data) => {
   data.forEach(elem => {
-    console.log(elem);
     const card = document.createElement("div");
     card.innerHTML = `
         <div class="card bg-base-100 w-full shadow-xl">
@@ -38,8 +36,17 @@ const displayData = (data) => {
             </div>
         </div>
     `
-    phoneList.append(card);
+    phoneList.appendChild(card);
   });
 };
 
-displayData();
+getData('iphone');
+
+const getSearch = () => {
+  const searchInput = document.querySelector(".search__input ");
+  const searchValue = searchInput.value;
+  getData(searchValue);
+}
+
+const searchBtn = document.querySelector(".search__btn");
+searchBtn.addEventListener("click", getSearch)
