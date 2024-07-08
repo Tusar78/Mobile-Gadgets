@@ -2,6 +2,7 @@
 
 // Load Data
 const loadData = async (items, isShowAll) => {
+  console.log(isShowAll);
   const response = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${items}`
   );
@@ -16,7 +17,7 @@ const displayData = (data, isShowAll) => {
   phoneList.textContent = "";
 
   const showAll = document.getElementById("showAll");
-  if (data.length > 6) {
+  if (data.length > 6 && !isShowAll) {
     showAll.classList.remove("hidden");
   } else {
     showAll.classList.add("hidden");
@@ -24,9 +25,13 @@ const displayData = (data, isShowAll) => {
 
   console.log("Is show all: ", isShowAll);
 
-  data = data.slice(0, 6);
-  // if (!isShowAll) {
-  // }
+  if (!isShowAll) {
+    data = data.slice(0, 6);
+  } else {
+    data = data.slice(0, -1);
+    console.log('Hi');
+  }
+  console.log(data);
   data.forEach((elem) => {
     const card = document.createElement("div");
     card.classList = `card bg-base-100 w-full shadow-xl`;
@@ -74,4 +79,4 @@ const showAllFunc = () => {
 
 loadSpinner(true);
 
-loadData("iphone");
+loadData("iphone", true);
