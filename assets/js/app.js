@@ -1,5 +1,7 @@
 // Neccessary Link
 const phoneList = document.querySelector(".phones__list");
+const showAll = document.getElementById("showAll");
+console.log(showAll);
 
 // Load Data
 const loadData = async (items) => {
@@ -13,7 +15,14 @@ const loadData = async (items) => {
 
 // Display Data
 const displayData = (data) => {
-  phoneList.innerHTML = '';
+  phoneList.innerHTML = "";
+  if (data.length > 6) {
+    showAll.classList.remove("hidden");
+    console.log("hello");
+  } else {
+    showAll.classList.add("hidden");
+  }
+  data = data.slice(0, 6);
   data.forEach((elem) => {
     const card = document.createElement("div");
     card.classList = `card bg-base-100 w-full shadow-xl`;
@@ -33,13 +42,14 @@ const displayData = (data) => {
             </div>
         </div>
     `;
+    loadSpinner(false);
+
     phoneList.appendChild(card);
   });
 };
 
-
-
 const getSearch = () => {
+  loadSpinner(true);
   const searchInput = document.querySelector(".search__input ");
   const searchValue = searchInput.value;
   loadData(searchValue);
@@ -48,4 +58,14 @@ const getSearch = () => {
 const searchBtn = document.querySelector(".search__btn");
 searchBtn.addEventListener("click", getSearch);
 
-loadData('iphone');
+function loadSpinner(isLoading) {
+  const loaderSpinner = document.getElementById("loader");
+  if (isLoading) {
+    loaderSpinner.classList.remove("hidden");
+  } else {
+    loaderSpinner.classList.add("hidden");
+  }
+}
+loadSpinner();
+
+// loadData('iphone');

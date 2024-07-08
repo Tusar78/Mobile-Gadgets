@@ -16,7 +16,7 @@
     <title>Mobile Gadget</title>
   </head>
   <body>
-    <section class="container-fluid hero pt-12 pb-28">
+    <!-- <section class="container-fluid hero pt-12 pb-28">
       <div class="custom-container">
         <div class="hero__nav flex items-center justify-between">
           <a href="#" class="brand text-2xl font-bold text-gray-700"
@@ -49,7 +49,7 @@
           <img src="./assets/img/phones-banner.webp" alt="Phones" />
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="container-fluid phones pb-28">
       <div class="custom-container">
@@ -78,6 +78,9 @@
             </button>
           </div>
         </div>
+        <div class="text-center mt-20 hidden" id="loader">
+          <span class="loading loading-bars loading-lg"></span>
+        </div>
 
         <div class="phones__list mt-16 grid grid-cols-3 gap-6">
           <!-- <div class="card bg-base-100 w-full shadow-xl">
@@ -100,7 +103,7 @@
 
         <!-- Show All Button -->
         <div class="text-center mt-10">
-          <button class="btn btn btn-primary">Show All</button>
+          <button class="btn btn btn-primary hidden" id="showAll">Show All</button>
         </div>
       </div>
     </section>
