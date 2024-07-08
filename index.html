@@ -72,7 +72,8 @@
               alt="Search SVG"
             />
             <button
-              onclick="getSearch()";
+              onclick="getSearch()"
+              ;
               class="search__btn h-16 absolute right-0 bg-blue-600 text-white font-medium text-xl px-9 py-4 rounded-lg"
             >
               Search
@@ -84,20 +85,26 @@
         </div>
 
         <div class="phones__list mt-16 grid grid-cols-3 gap-6">
-          <div class="card bg-base-100 w-full shadow-xl">
-            <figure class="px-10 pt-10">
+          <div
+            class="card bg-white w-full border rounded-lg border-[#CFCFCF] p-[25px]"
+          >
+            <div
+              class="card__thumbs w-full h-[300px] bg-[#0D6EFD]/5 rounded-lg overflow-hidden flex justify-center items-center p-10"
+            >
               <img
                 src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
                 alt="Shoes"
-                class="rounded-xl"
+                class="object-contain w-full h-full"
               />
-            </figure>
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div class="card-actions">
-                <button class="btn btn-primary">Buy Now</button>
-              </div>
+            </div>
+            <div class="card__body px-3 pt-[25px] text-center">
+              <h2 class="card__title text-[25px] font-bold text-[#706F6F]">Iphone 13 Pro Max!</h2>
+              <p class="mt-5 mb-2 text-lg text-[#706F6F]">
+                There are many variations of passages of available, but the
+                majority have suffered
+              </p>
+              <span class="block text-[25px] font-bold text-[#706F6F] mb-4">$999</span>
+              <button class="btn hover:bg-blue-500 bg-blue-600 text-white rounded-lg text-xl font-semibold px-[25px] py-[9px]">Show Details</button>
             </div>
           </div>
         </div>
