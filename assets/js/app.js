@@ -1,28 +1,32 @@
 // Neccessary Link
-const phoneList = document.querySelector(".phones__list");
-const showAll = document.getElementById("showAll");
-console.log(showAll);
 
 // Load Data
-const loadData = async (items) => {
+const loadData = async (items, isShowAll) => {
   const response = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${items}`
   );
   const data = await response.json();
   const phones = data.data;
-  displayData(phones);
+  displayData(phones, isShowAll);
 };
 
 // Display Data
-const displayData = (data) => {
-  phoneList.innerHTML = "";
+const displayData = (data, isShowAll) => {
+  const phoneList = document.querySelector(".phones__list");
+  phoneList.textContent = "";
+
+  const showAll = document.getElementById("showAll");
   if (data.length > 6) {
     showAll.classList.remove("hidden");
-    console.log("hello");
   } else {
     showAll.classList.add("hidden");
   }
+
+  console.log("Is show all: ", isShowAll);
+
   data = data.slice(0, 6);
+  // if (!isShowAll) {
+  // }
   data.forEach((elem) => {
     const card = document.createElement("div");
     card.classList = `card bg-base-100 w-full shadow-xl`;
@@ -48,15 +52,12 @@ const displayData = (data) => {
   });
 };
 
-const getSearch = () => {
+const getSearch = (isShowAll) => {
   loadSpinner(true);
   const searchInput = document.querySelector(".search__input ");
   const searchValue = searchInput.value;
-  loadData(searchValue);
+  loadData(searchValue, isShowAll);
 };
-
-const searchBtn = document.querySelector(".search__btn");
-searchBtn.addEventListener("click", getSearch);
 
 function loadSpinner(isLoading) {
   const loaderSpinner = document.getElementById("loader");
@@ -67,7 +68,10 @@ function loadSpinner(isLoading) {
   }
 }
 
+const showAllFunc = () => {
+  getSearch(true);
+};
 
 loadSpinner(true);
 
-loadData('iphone');
+loadData("iphone");

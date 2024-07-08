@@ -72,6 +72,7 @@
               alt="Search SVG"
             />
             <button
+              onclick="getSearch()";
               class="search__btn h-16 absolute right-0 bg-blue-600 text-white font-medium text-xl px-9 py-4 rounded-lg"
             >
               Search
@@ -103,7 +104,13 @@
 
         <!-- Show All Button -->
         <div class="text-center mt-10">
-          <button class="btn btn btn-primary hidden" id="showAll">Show All</button>
+          <button
+            onclick="showAllFunc()"
+            class="btn btn btn-primary hidden"
+            id="showAll"
+          >
+            Show All
+          </button>
         </div>
       </div>
     </section>
