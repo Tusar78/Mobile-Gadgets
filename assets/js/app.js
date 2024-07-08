@@ -1,4 +1,4 @@
-// Neccessary
+// Neccessary Link
 const phoneList = document.querySelector(".phones__list");
 
 // Load Data
@@ -11,6 +11,7 @@ const loadData = async (items) => {
   displayData(phones);
 };
 
+// Display Data
 const displayData = (data) => {
   phoneList.innerHTML = '';
   data.forEach((elem) => {
@@ -47,4 +48,4 @@ const getSearch = () => {
 const searchBtn = document.querySelector(".search__btn");
 searchBtn.addEventListener("click", getSearch);
 
-loadData();
+loadData('iphone');
