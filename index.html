@@ -98,13 +98,21 @@
               />
             </div>
             <div class="card__body px-3 pt-[25px] text-center">
-              <h2 class="card__title text-[25px] font-bold text-[#706F6F]">Iphone 13 Pro Max!</h2>
+              <h2 class="card__title text-[25px] font-bold text-[#706F6F]">
+                Iphone 13 Pro Max!
+              </h2>
               <p class="mt-5 mb-2 text-lg text-[#706F6F]">
                 There are many variations of passages of available, but the
                 majority have suffered
               </p>
-              <span class="block text-[25px] font-bold text-[#706F6F] mb-4">$999</span>
-              <button class="btn hover:bg-blue-500 bg-blue-600 text-white rounded-lg text-xl font-semibold px-[25px] py-[9px]">Show Details</button>
+              <span class="block text-[25px] font-bold text-[#706F6F] mb-4"
+                >$999</span
+              >
+              <button
+                class="btn hover:bg-blue-500 bg-blue-600 text-white rounded-lg text-xl font-semibold px-[25px] py-[9px]"
+              >
+                Show Details
+              </button>
             </div>
           </div>
         </div>
@@ -122,15 +130,32 @@
       </div>
     </section>
 
-    <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
-    <dialog id="my_modal_1" class="modal">
-      <div class="modal-box">
-        <h3 class="text-lg font-bold">Hello!</h3>
-        <p class="py-4">Press ESC key or click the button below to close</p>
+    <button class="btn" onclick="card__modal.showModal()">open modal</button>
+    <dialog id="card__modal" class="modal">
+      <div class="modal-box w-full max-w-[752px] rounded-lg p-10">
+        <div
+          class="modal__thumbs w-full h-[483px] bg-[#0D6EFD]/5 rounded-lg overflow-hidden flex justify-center items-center p-12"
+        >
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+            alt="Shoes"
+            class="object-contain w-full h-full"
+          />
+        </div>
+        <div class="modal__body my-10">
+          <h2 class="modal__title text-[30px] font-bold text-[#706F6F]">Iphone 13 Pro Max</h2>
+          <p class="modal__text text-base text-[#706F6F] pt-6 pb-5">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+
+          <div class="modal__additions flex flex-col gap-4">
+            <p class="text-xl text-[#706F6F] font-normal"><span class="font-semibold">Storage : </span>128GB/256GB/1TB Storage, No card slot</p>
+          </div>
+        </div>
+
+        <!-- Modal Closed -->
         <div class="modal-action">
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
-            <button class="btn">Close</button>
+            <button class="btn px-[51px] py-[17px] rounded-lg bg-red-600 text-white hover:bg-red-500">Close</button>
           </form>
         </div>
       </div>
