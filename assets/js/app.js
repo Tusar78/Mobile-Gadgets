@@ -66,6 +66,8 @@ function loadSpinner(isLoading) {
     loaderSpinner.classList.add("hidden");
   }
 }
-loadSpinner();
 
-// loadData('iphone');
+
+loadSpinner(true);
+
+loadData('iphone');
