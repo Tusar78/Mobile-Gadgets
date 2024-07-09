@@ -15,8 +15,8 @@ const loadData = async(searchText) => {
 const displayData = (phones) => {
     // Initial Clean The Card Container
     cardContainer.textContent = '';
-    
-    // Display Phone to the Dom
+
+    // Processes Data For Display
     phones.forEach(phone => {
         const card = document.createElement("div");
         card.classList = 'card bg-white w-full border rounded-lg border-[#CFCFCF] p-[25px]';
@@ -47,7 +47,7 @@ const displayData = (phones) => {
             </div>
         `
 
-        // Append Phone Data
+        // Push Data to the Card Container
         cardContainer.append(card);
     });
 }
@@ -57,12 +57,18 @@ searchField.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
         const searchText = e.target.value;
         loadData(searchText);
+    
+        // Clear Field After Search
+        searchField.value = '';
     }
 })
 
 searchBtn.addEventListener("click", (e) => {
     const searchText = searchField.value;
     loadData(searchText);
+
+    // Clear Field After Search
+    searchField.value = '';
 })
 
 loadData('iphone');
