@@ -1,16 +1,21 @@
 // Neccessary Element
 const cardContainer = document.querySelector(".phones__list");
+const searchField = document.querySelector(".search__input ");
+const searchBtn = document.querySelector(".search__btn");
 
 // Data Load
-const loadData = async() => {
-    const load = await fetch(`https://openapi.programming-hero.com/api/phones?search=iphone`);
+const loadData = async(searchText) => {
+    const load = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const res = await load.json();
     const phones = res.data;
     displayData(phones);
 }
 
 // Display Data to the DOM
-const displayData = (phones) => {    
+const displayData = (phones) => {
+    // Initial Clean The Card Container
+    cardContainer.textContent = '';
+    
     // Display Phone to the Dom
     phones.forEach(phone => {
         const card = document.createElement("div");
@@ -47,4 +52,17 @@ const displayData = (phones) => {
     });
 }
 
-loadData();
+// Search Functionality
+searchField.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+        const searchText = e.target.value;
+        loadData(searchText);
+    }
+})
+
+searchBtn.addEventListener("click", (e) => {
+    const searchText = searchField.value;
+    loadData(searchText);
+})
+
+loadData('iphone');
