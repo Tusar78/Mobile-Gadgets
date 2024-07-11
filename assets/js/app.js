@@ -3,6 +3,7 @@ const cardContainer = document.querySelector(".phones__list");
 const searchField = document.querySelector(".search__input ");
 const searchBtn = document.querySelector(".search__btn");
 const loader = document.querySelector("#loader");
+const showBtn = document.querySelector("#showAll");
 
 // Data Load
 const loadData = async (searchText) => {
@@ -18,6 +19,15 @@ const loadData = async (searchText) => {
 const displayData = (phones) => {
   // Initial Clean The Card Container
   cardContainer.textContent = "";
+
+  // Display ShowAll Button
+  if (phones.length > 6) {
+    showBtn.classList.remove('hidden');
+  } else {
+    showBtn.classList.add('hidden');
+  }
+
+  phones = phones.slice(0, 6);
 
   // Processes Data For Display
   if (phones.length > 0) {
