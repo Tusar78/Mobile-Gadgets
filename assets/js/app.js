@@ -6,28 +6,33 @@ const loader = document.querySelector("#loader");
 const showBtn = document.querySelector("#showAll");
 
 // Data Load
-const loadData = async (searchText) => {
+const loadData = async (searchText, isShowAll) => {
   const load = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${searchText}`
   );
   const res = await load.json();
   const phones = res.data;
-  displayData(phones);
+  displayData(phones, isShowAll);
 };
 
 // Display Data to the DOM
-const displayData = (phones) => {
+const displayData = (phones, isShowAll) => {
+  console.log(isShowAll);
   // Initial Clean The Card Container
   cardContainer.textContent = "";
 
   // Display ShowAll Button
-  if (phones.length > 6) {
+  if (phones.length > 6 && !isShowAll) {
     showBtn.classList.remove('hidden');
   } else {
     showBtn.classList.add('hidden');
   }
 
-  phones = phones.slice(0, 6);
+  if (!isShowAll) {
+    phones = phones.slice(0, 6);
+  } else {
+    phones = phones.slice(0, -1);
+  }
 
   // Processes Data For Display
   if (phones.length > 0) {
@@ -83,18 +88,21 @@ searchField.addEventListener("keyup", (e) => {
     loadSpinner(true);
 
     // Clear Field After Search
-    searchField.value = "";
+    // searchField.value = "";
   }
 });
 
-searchBtn.addEventListener("click", () => {
+const searchFunc2 = (isShowAll) => {
   const searchText = searchField.value;
-  loadData(searchText);
+  loadData(searchText, isShowAll);
   loadSpinner(true);
 
   // Clear Field After Search
-  searchField.value = "";
-});
+  // searchField.value = "";
+}
+// searchBtn.addEventListener("click", function (e) {
+//   searchFunc2(e)
+// });
 
 // Loading Animation Before Display Data
 const loadSpinner = (isLoading) => {
@@ -104,5 +112,12 @@ const loadSpinner = (isLoading) => {
     loader.classList.add("hidden");
   }
 };
+
+// Show All Data
+const allData = () => {
+  searchFunc2(true)
+}
+
+showBtn.addEventListener('click', allData);
 
 loadData("iphone");
